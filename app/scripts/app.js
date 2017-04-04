@@ -1,22 +1,25 @@
-import { createStore } from 'redux'
+import {
+    createStore
+} from 'redux'
 import loginView from './login_view.js'
 
+
 export default function app() {
-  console.log(createStore(function (state = [], action) {
-    return state;
-  }));
+    console.log(createStore(function(state = [], action) {
+        return state;
+    }));
 
-let initialState = {
-  user: '',
-  todos: [],
-  view: loginView
-}
+    let initialState = {
+        user: '',
+        todos: [],
+        view: loginView
+    }
 
-const reducer = function (state, action){
-  if (state === undefined){
-    return initialState;
-  }
-  switch (action.type) {
+    const appReducer = function(state, action) {
+        if (state === undefined) {
+            state = initialState;
+        }
+        switch (action.type) {
             case "TESTING":
                 console.log("It works!");
                 console.log(state);
@@ -25,19 +28,21 @@ const reducer = function (state, action){
             default:
                 return state;
 
-}
-}
-}
+        }
+    }
 
-const store = createStore(reducer);
+    console.log(appReducer);
 
-const render = function (){
-  let state = store.getState();
-  $('#app').html(state.view(store));
+    const store = createStore(appReducer);
+
+    const render = function() {
+        let state = store.getState();
+        $('#app').html(state.view(store));
+    }
+
+    store.subscribe(render)
+
+    store.dispatch({
+        type: "TESTING",
+    });
 }
-
-store.subscribe(render)
-
-// store.dispatch({
-//         type: "TESTING",
-// });
