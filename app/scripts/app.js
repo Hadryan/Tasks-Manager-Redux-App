@@ -29,30 +29,27 @@ export default function app() {
                 return state
 
             case "LOGGED_IN":
-              getPosts(store);
-              console.log('I did log in!');
-              var newUser = action.user
-              if (newUser === ''|| action.email === '' || action.password === ''){
-                alert('Complete Form')
-              } else {
+                console.log('I did log in!');
+                var newUser = action.user
+                if (newUser === '' || action.email === '' || action.password === '') {
+                    alert('Complete Form')
+                } else {
+                    postUser(store, action.email, action.password);
+                    return Object.assign({}, state, {
+                        user: newUser,
+                        view: appView
+                    })
+                }
 
-                postUser(store, action.email, action.password);
-
+            case "AUTHENTICATED":
+                console.log('My token saved');
+                var userToken = action.userToken;
                 return Object.assign({}, state, {
-                  user: newUser,
-                  view: appView
+                    userToken: userToken
                 })
 
-              }
 
-              case "AUTHENTICATED":
-              console.log('My token saved');
-              var userToken = action.userToken;
-              return Object.assign({}, state, {
-                userToken: userToken
-              })
-
-
+                getPosts(store);
 
             default:
                 return state;
@@ -65,7 +62,7 @@ export default function app() {
     const render = function() {
         let state = store.getState();
         $('#app').html(state.view(store));
-          console.log(state);
+        console.log(state);
     }
 
     store.subscribe(render)
