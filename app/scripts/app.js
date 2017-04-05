@@ -2,6 +2,9 @@ import {
     createStore
 } from 'redux'
 import loginView from './login_view.js'
+import appView from './app_view.js'
+import postUser from './server_requests.js'
+import getPost from './get_posts.js'
 
 
 export default function app() {
@@ -25,6 +28,29 @@ export default function app() {
                 console.log(state);
                 return state
 
+            case "LOGGED_IN":
+              console.log('I did log in!');
+              var newUser = action.user
+              if (newUser === ''|| action.email === '' || action.password === ''){
+                alert('Complete Form')
+              } else {
+                postUser(store, action.email, action.password);
+                // getPosts(store)
+                return Object.assign({}, state, {
+                  user: newUser,
+                  view: appView
+                })
+              }
+
+              case "AUTHENTICATED":
+              console.log('My token saved');
+              var userToken = action.userToken;
+              return Object.assign({}, state, {
+                userToken: userToken
+              })
+
+
+
             default:
                 return state;
 
@@ -38,6 +64,7 @@ export default function app() {
     const render = function() {
         let state = store.getState();
         $('#app').html(state.view(store));
+          console.log(state);
     }
 
     store.subscribe(render)

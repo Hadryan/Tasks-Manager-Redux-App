@@ -11,17 +11,17 @@ export default function loginView(store) {
     </form>
     `)
     $html.find('button').on('click', function(e){
-      store.dispath({
-        type: 'GET_TASKS',
-        user: $('.username').val()
+      store.dispatch({
+        type: 'LOGGED_IN',
+        user: 'Joe',
+        // $('.username').val(),
+        email: 'joebumbulis@gmail.com',
+        // $('.email').val(),
+        password: 'password'
+        // $('.password').val()
       })
 
-      store.dispath({
-        type: 'POST_USER',
-        user: $('.username').val(),
-        email: $('.email').val(),
-        password: $('.password').val()
-      })
+
     })
 
     return $html;
