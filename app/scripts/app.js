@@ -54,15 +54,22 @@ export default function app() {
                 return state;
 
             case "TASKS_LOADED":
-                  console.log('Tasks loaded!');
-                  var newState = {
+                console.log('Tasks loaded!');
+                var newState = {
                     tasks: action.tasks
-                  }
-                  return Object.assign({}, state, newState)
+                }
+                return Object.assign({}, state, newState);
+
+            case "POST_TASK":
+                console.log('I posted task');
+                // var newState = {
+                //     tasks: action.tasks
+                // }
+                return Object.assign({}, state);
 
             case "LOG_OUT":
-            console.log('Logged Out');
-            return Object.assign({}, initialState);
+                console.log('Logged Out');
+                return Object.assign({}, initialState);
 
             default:
                 return state;

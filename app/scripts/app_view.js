@@ -1,10 +1,12 @@
+import postTask from './post_task.js'
+
 export default function appView(store) {
     let state = store.getState()
-    let tasks = store.getState().tasks
+    // let tasks = store.getState().tasks
     let user = store.getState().user
 
 
-    console.log(tasks);
+    // console.log(tasks);
 
     console.log("This is the appView log");
     let $html = $(`
@@ -20,7 +22,7 @@ export default function appView(store) {
             <label for="state">Due Date:</label>
             <input class="date" type="date" name="due-date" value="">
             <label for="importance">Important</label>
-            <input class="Important" type="checkbox" name="important" value="yes">
+            <input class="important" type="checkbox" name="important" value="yes">
             <button id="add-task-btn" class="input-btn" name="button">ADD TASK</button>
           </form
       </div>
@@ -48,7 +50,7 @@ export default function appView(store) {
     var formContainer = $html.find('.form-container');
 
 
-    tasks.forEach((task) => {
+  store.getState().tasks.forEach((task) => {
         console.log(task);
         var taskLine = $(`
     <tr>
@@ -70,19 +72,26 @@ export default function appView(store) {
 
     $html.find('#add-task-btn').on('click', (e) => {
         e.preventDefault()
+        let name = $html.find('.name').val();
+        let description = $html.find('.description').val();
+        let state = false;
+        let date = $html.find('.date').val();
+        let important = $html.find('.important').is(":checked");
+        console.log(important);
+        //run post request to server?
+        postTask(store, state,  )
         store.dispatch({
-
-            // TYPE: "POST_TASK",
-            tasks: {
-                state: false,
-                name: $('.name').val(),
-                description: $('.description').val(),
-                due: $('.date').val(),
-                important: $('important').value
-
-            }
+            type: "POST_TASK",
+            // tasks: {
+            //     state: false,
+            //     name: $('.name').val(),
+            //     description: $('.description').val(),
+            //     due: $('.date').val(),
+            //     important: $('important').value
+            //
+            // }
         })
-        console.log(tasks);
+        console.log(store.getState());
 
     })
 
