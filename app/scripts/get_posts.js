@@ -15,9 +15,14 @@ console.log(token);
 
   }).then((data, status)=> {
     console.log(data);
+    // var tasks = state.data.map((task)=> {
+    var tasks = data.map((task)=> {
+        return state.task.objects
+    })
+    console.log(tasks);
     store.dispatch({
       type: 'TASKS_LOADED',
-      tasks: data
+      tasks: tasks
     })
   })
 }
