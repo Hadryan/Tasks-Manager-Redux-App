@@ -1,7 +1,7 @@
-export default function getPosts(store){
+export default function getTasks(store){
 var state = store.getState();
 var token = state.userToken;
-console.log(state);
+console.log(token);
 
   $.ajax({
     type: 'Get',

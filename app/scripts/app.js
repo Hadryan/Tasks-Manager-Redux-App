@@ -4,7 +4,7 @@ import {
 import loginView from './login_view.js'
 import appView from './app_view.js'
 import postUser from './server_requests.js'
-import getPosts from './get_posts.js'
+import getTasks from './get_posts.js'
 
 
 export default function app() {
@@ -48,8 +48,9 @@ export default function app() {
                     userToken: userToken
                 })
 
-
-                getPosts(store);
+            case "GET_TASKS":
+                console.log('I fetched tasks');
+                getTasks(store);
 
             default:
                 return state;

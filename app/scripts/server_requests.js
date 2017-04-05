@@ -20,5 +20,9 @@ export default function postUser(store, login, password){
       type: 'AUTHENTICATED',
       userToken: data['user-token']
     })
+    store.dispatch({
+      type: 'GET_TASKS',
+      // tasks:
+    })
   })
 }
