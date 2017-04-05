@@ -13,11 +13,12 @@ console.log(token);
       'user-token': token
     },
 
-  }).then((data, status)=> {
-    console.log(data);
+  }).then((response, status)=> {
+    console.log('blah', response.data);
+
     // var tasks = state.data.map((task)=> {
-    var tasks = data.map((task)=> {
-        return state.task.objects
+    var tasks = response.data.map((task)=> {
+        return {name: task.Name, description: task.description, important: task.important, due: task.due_date, state: task.state}
     })
     console.log(tasks);
     store.dispatch({
