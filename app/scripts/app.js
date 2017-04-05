@@ -51,6 +51,7 @@ export default function app() {
             case "GET_TASKS":
                 console.log('I fetched tasks');
                 getTasks(store);
+                return state;
 
             default:
                 return state;
