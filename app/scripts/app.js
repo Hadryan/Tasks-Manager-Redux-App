@@ -14,7 +14,7 @@ export default function app() {
 
     let initialState = {
         user: '',
-        todos: [],
+        tasks: [],
         view: loginView
     }
 
@@ -52,6 +52,13 @@ export default function app() {
                 console.log('I fetched tasks');
                 getTasks(store);
                 return state;
+
+            case "TASKS_LOADED":
+                  console.log('Tasks loaded!');
+                  var newState = {
+                    tasks: action.tasks
+                  }
+                  return Object.assign({}, state, newState)
 
             default:
                 return state;
