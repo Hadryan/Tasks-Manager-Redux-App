@@ -60,6 +60,10 @@ export default function app() {
                   }
                   return Object.assign({}, state, newState)
 
+            case "LOG_OUT":
+            console.log('Logged Out');
+            return Object.assign({}, initialState);
+
             default:
                 return state;
 
