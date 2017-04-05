@@ -14,8 +14,8 @@ export default function getPosts(store){
     //   login: login,
     //   password: password
     // })
-  }).then((data)=> {
-    console.log(data);
+  }).then((data, status)=> {
+    console.log(status);
     // store.dispatch({
     //   type: 'AUTHENTICATED',
     //   userToken: data['user-token']

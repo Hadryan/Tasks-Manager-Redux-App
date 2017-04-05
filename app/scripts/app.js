@@ -4,7 +4,7 @@ import {
 import loginView from './login_view.js'
 import appView from './app_view.js'
 import postUser from './server_requests.js'
-import getPost from './get_posts.js'
+import getPosts from './get_posts.js'
 
 
 export default function app() {
@@ -29,17 +29,20 @@ export default function app() {
                 return state
 
             case "LOGGED_IN":
+              getPosts(store);
               console.log('I did log in!');
               var newUser = action.user
               if (newUser === ''|| action.email === '' || action.password === ''){
                 alert('Complete Form')
               } else {
+
                 postUser(store, action.email, action.password);
-                // getPosts(store)
+
                 return Object.assign({}, state, {
                   user: newUser,
                   view: appView
                 })
+
               }
 
               case "AUTHENTICATED":
@@ -56,8 +59,6 @@ export default function app() {
 
         }
     }
-
-    console.log(appReducer);
 
     const store = createStore(appReducer);
 
