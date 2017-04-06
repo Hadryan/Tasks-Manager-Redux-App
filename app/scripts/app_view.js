@@ -75,12 +75,11 @@ export default function appView(store) {
         e.preventDefault()
         let name = $html.find('.name').val();
         let description = $html.find('.description').val();
-        let state = false;
+        let completed = false;
         let date = $html.find('.date').val();
         let important = $html.find('.important').is(":checked");
-        console.log(important);
         //run post request to server?
-        postTask(store, state, )
+        postTask(store, description, name, completed, date, important)
         store.dispatch({
             type: "POST_TASK",
             // tasks: {
@@ -99,7 +98,6 @@ export default function appView(store) {
     $html.find('.logout-btn').on('click', (e) => {
         store.dispatch({
             type: "LOG_OUT",
-            // view: loginView
         })
     })
 

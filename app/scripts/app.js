@@ -65,7 +65,7 @@ export default function app() {
                 // var newState = {
                 //     tasks: action.tasks
                 // }
-                return Object.assign({}, state);
+                return state;
 
             case "LOG_OUT":
                 console.log('Logged Out');
