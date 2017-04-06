@@ -49,8 +49,9 @@ export default function appView(store) {
 
     var formContainer = $html.find('.form-container');
 
-
-  store.getState().tasks.forEach((task) => {
+    store.getState().tasks.forEach((task) => {
+        let milliseconds = task.due;
+        let date = new Date(milliseconds)
         console.log(task);
         var taskLine = $(`
     <tr>
@@ -62,7 +63,7 @@ export default function appView(store) {
       <td><input type="checkbox" name="state" value="">${task.state}</td>
       <td>${task.name}</td>
       <td>${task.description}</td>
-      <td>${task.due}</td>
+      <td>${date}</td>
       <td>${task.important}</td>
     </tr>
     `)
@@ -79,7 +80,7 @@ export default function appView(store) {
         let important = $html.find('.important').is(":checked");
         console.log(important);
         //run post request to server?
-        postTask(store, state,  )
+        postTask(store, state, )
         store.dispatch({
             type: "POST_TASK",
             // tasks: {
