@@ -1,6 +1,7 @@
 # Task Management App with Backendless
 [Live Site on Surge ](http://joebum-day-day-27-tasks_manager.surge.sh/)
-Be able to manage and build an application using a backend as a service.
+
+* Be able to manage and build an application using a backend as a service.
 
 ## Explorer Mode
 
