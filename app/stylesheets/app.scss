@@ -69,7 +69,7 @@ h2 {
 }
 
 .input-form {
-  text-align: center;
+  // text-align: center;
   clear: both;
   padding: 1rem 0 1rem 0;
   border-bottom: solid .1rem #99a;
@@ -86,9 +86,18 @@ table {
 }
 
 td {
-  border-top: .1rem solid #99a;
+  border-top: .1rem solid #445;
   border-left: .1rem solid #99a;
   border-bottom: .1rem solid #445;
+  padding: .5rem 0 0 .2rem;
   // max-width: 45rem;
   // text-overflow: ellipsis;
+}
+
+// .table-headers {
+//   color: #445;
+// }
+
+th {
+  color: #445;
 }

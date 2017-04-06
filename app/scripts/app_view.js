@@ -29,17 +29,15 @@ export default function appView(store) {
       <div class="tasks-container">
         <section class="input-form">
           <table class="form-container">
-          <tr>
-        <col width="1%">
-        <col width="24%">
-        <col width="40%">
-        <col width="15%">
+          <tr class="table-headers">
         <col width="20%">
-            <td><input type="checkbox" name="state" value=""></td>
-            <td>Learn Redux</td>
-            <td>store, state, pojo, reducer, views, models</td>
-            <td>04/05/17</td>
-            <td>Importance</td>
+        <col width="30%">
+        <col width="25%">
+        <col width="1%">
+            <th>Title</td>
+            <th>Description</td>
+            <th>Due Date</td>
+            <th>Importance</td>
           </tr>
 
           </table>
@@ -67,7 +65,7 @@ export default function appView(store) {
       <td>${task.important}</td>
     </tr>
     `)
-        $(formContainer).append(taskLine);
+        $(formContainer).after(taskLine);
     })
 
 
@@ -79,7 +77,7 @@ export default function appView(store) {
         let date = $html.find('.date').val();
         let important = $html.find('.important').is(":checked");
         //run post request to server?
-        postTask(store, description, name, completed, date, important)
+        postTask(store, name, description, completed, date, important)
         store.dispatch({
             type: "POST_TASK",
             // tasks: {
