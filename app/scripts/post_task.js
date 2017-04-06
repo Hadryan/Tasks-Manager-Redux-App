@@ -16,7 +16,7 @@ export default function postTask(store, name, description, completed, date, impo
         data: JSON.stringify({
             "name": name,
             "description": description,
-            "state": false,
+            "state": false, 
             "due_date": date,
             "important": important
         })

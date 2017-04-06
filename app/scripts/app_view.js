@@ -30,10 +30,10 @@ export default function appView(store) {
         <section class="input-form">
           <table class="form-container">
           <tr class="table-headers">
-        <col width="20%">
-        <col width="30%">
-        <col width="25%">
-        <col width="1%">
+            <col width="20%">
+            <col width="30%">
+            <col width="25%">
+            <col width="1%">
             <th>Title</td>
             <th>Description</td>
             <th>Due Date</td>

@@ -62,9 +62,7 @@ export default function app() {
 
             case "POST_TASK":
                 console.log('I posted task');
-                // var newState = {
-                //     tasks: action.tasks
-                // }
+            
                 return state;
 
             case "LOG_OUT":
