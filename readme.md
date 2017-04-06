@@ -1,6 +1,5 @@
 # Task Management App with Backendless
-http://joebum-day-day-27-tasks_manager.surge.sh/
-
+[Live Site on Surge ](http://joebum-day-day-27-tasks_manager.surge.sh/)
 Be able to manage and build an application using a backend as a service.
 
 ## Explorer Mode
@@ -27,7 +26,7 @@ The backendless endpoint URL
 Your application ID
 Your REST secret key
 Example API request with the headers set:
-`
+```
   $.ajax({
     url: APP_URL + "/tasks",
     method: "GET",
@@ -39,7 +38,8 @@ Example API request with the headers set:
       //  Sending this with a POST request to create a task will make that task
       //  "belong" to that user. It will tie them together in the database.
     }
-  })`
+  })
+  ```
 
 ## WHAT TO SUBMIT
 A link to a repository containing your project code.
